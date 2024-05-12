@@ -1,0 +1,10 @@
+OBS stream
+Rozpoznávat karty
+Blackjack strategy
+Rozpoznat W/L
+Logování dat
+UI input
+
+
+
+
