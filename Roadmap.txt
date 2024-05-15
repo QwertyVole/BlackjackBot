@@ -6,7 +6,8 @@ Rozpoznávat karty
     do budoucna zajímavější verze - koukat se i na barvu karty(počítání karet)
 Blackjack strategy
     basic Blackjack strategy
-    mega profi - počítání karet
+    basic card counting
+    mega profi - dynamicky počítat pravděpodobnost a vsázet podle toho
 Rozpoznat W/L
 Logování dat
 UI input
