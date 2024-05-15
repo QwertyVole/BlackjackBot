@@ -1,6 +1,12 @@
 OBS stream
+    localhost stream
+    nahrát 3 hry přes OBS pro jednodušší práci s hledáním karet
 Rozpoznávat karty
+    nejspíš jednodušší verze - koukat se jenom na číslo vedle karet
+    do budoucna zajímavější verze - koukat se i na barvu karty(počítání karet)
 Blackjack strategy
+    basic Blackjack strategy
+    mega profi - počítání karet
 Rozpoznat W/L
 Logování dat
 UI input
