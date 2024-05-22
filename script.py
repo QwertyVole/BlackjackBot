@@ -1,7 +1,13 @@
 import cv2 as cv
+import numpy as numpy
 
-#get rtmp stream to work
+cap = cv.VideoCapture(0)#if 0 doesnt work, increment by one and try again
+while True:
+    isTrue, frame = cap.read()
+    cv.imshow("frame", frame)
 
-myrtmp_addr = "rtmp://myip:1935/myapp/mystream"
-cap = cv.VideoCapture(myrtmp_addr)
-frame,err = cap.read()
+#press d to destroy all windows and stop the program
+    if cv. waitKey(20) & 0xFF==ord("d"):
+        break
+cap.release()
+cv.destroyAllWindows()
