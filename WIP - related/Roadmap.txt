@@ -1,0 +1,15 @@
+Rozpoznávat karty
+    nahrát 3 hry, abych nemusel používat kameru pro rozpoznávání čísel
+    zjistit jak cropovat kameru na čísla
+    nejspíš jednodušší verze - koukat se jenom na číslo vedle karet
+    do budoucna zajímavější verze - koukat se i na barvu karty(počítání karet)
+Blackjack strategy
+    chybí split
+    
+Logování dat
+Rozpoznat další hru
+UI input
+
+
+
+
