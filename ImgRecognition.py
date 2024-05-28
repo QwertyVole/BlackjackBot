@@ -12,12 +12,9 @@ while True:
     isTrue, img = cap.read()
     cv.imshow("Video", img)
     img = img[596:612, 618:636 ]        
-    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     print(pytesseract.image_to_string(img, config = custom_config))
 #press d to destroy all windows and stop the program
     if cv. waitKey(20) & 0xFF==ord("d"):
         break
-
-cv. waitKey(0)
 cap.release()
 cv.destroyAllWindows()
