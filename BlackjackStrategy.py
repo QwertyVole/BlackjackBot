@@ -6,7 +6,7 @@ player_money = 1000  # Initial budget
 starting_bet = 10  # Initial bet
 current_bet = starting_bet  # Current bet amount
 
-# Basic strategy based on the provided chart
+
 def basic_strategy(player_hand, dealer_upcard):
     player_total = calculate_hand(player_hand)
     if len(player_hand) == 2 and player_hand[0] == player_hand[1]:  # Check for pairs
