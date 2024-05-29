@@ -1,0 +1,5 @@
+dealer's card total position (area): X1 - 778 , Y1 - 983     X2 - 890 , Y2 - 1027
+player's card total position (area): X1 - 1255 , Y1 - 1393   X2 - 1371 , Y2 - 1441
+base bet amount position: X - 1186 , Y - 772
+place bet button position: X - 1441 , Y - 1383
+detect new game position: X - 1440 , Y - 580   RGB: (137, 197, 118)
