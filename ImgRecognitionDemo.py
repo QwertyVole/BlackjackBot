@@ -21,7 +21,11 @@ def click_event(event, x, y, flags, params):
         print(y,":",y+28,",",x,":",x+28) 
 
 cv.setMouseCallback("window", click_event)
-print("Players first card:", pytesseract.image_to_string(player_firstcard, config = custom_config))
-print("Players second card:", pytesseract.image_to_string(player_secondcard, config = custom_config))
-print("Dealer first card:", pytesseract.image_to_string(dealer_card, config = custom_config))
+player_first_card = pytesseract.image_to_string(img[596:622, 618:646], config = custom_config)
+#player_first_card = player_first_card[1]
+player_second_card = pytesseract.image_to_string(img[579:607 , 645:673], config = custom_config)
+#player_second_card = player_second_card[1]
+dealer_first_card = pytesseract.image_to_string(img[393 : 411 , 342 : 360], config = custom_config)
+#dealer_first_card = dealer_first_card[1]
+print("player1",player_first_card, "player2", player_second_card, "dealer1", dealer_first_card )
 cv. waitKey(0)
