@@ -1,7 +1,7 @@
 import random
 
 # Define the card values
-cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'A']
+cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J","Q", "K", "A"]
 player_money = 1000  # Initial budget
 starting_bet = 10  # Initial bet
 current_bet = starting_bet  # Current bet amount
@@ -136,8 +136,10 @@ def calculate_hand(hand):
         if card == 'A':
             aces += 1
             total += 11
+        elif card == "J" or card == "Q" or card == "K":
+            total += 10
         else:
-            total += card
+            total += int(card)
     while total > 21 and aces:
         total -= 10
         aces -= 1
