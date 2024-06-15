@@ -4,16 +4,22 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 custom_config = r'--oem 3 --psm 6'
-originalImg =cv.imread("screenshots/Screenshot (20).png")
+
+originalImg =cv.imread("screenshots/Screenshot (24).png")
 img =cv.resize(originalImg, (1920, 1080))
-cv.imshow("window",img[612 : 642 , 903 : 933])
+cv.imshow("window",img)
+cv.imshow("img", cv.flip(cv.flip(img[640 : 670 , 937 : 967],0),1))
 
 
 def click_event(event, x, y, flags, params): 
     # checking for right mouse clicks      
     if event==cv.EVENT_RBUTTONDOWN: 
         # displaying the coordinates 
-        print(y-3,":",y+27,",",x-3,":",x+27) 
+        #print(y-3,":",y+27,",",x-3,":",x+27) 
+        print(f"y:{y} x:{x}")
+        hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+        color = hsv[555, 1202]
+        print(f"H{color[0]} S{color[1]} V{color[2]}")
 
 cv.setMouseCallback("window", click_event)
 cv. waitKey(0)
