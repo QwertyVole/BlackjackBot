@@ -8,8 +8,8 @@ custom_config = r'--oem 3 --psm 6'
 originalImg =cv.imread("screenshots/Screenshot (24).png")
 img =cv.resize(originalImg, (1920, 1080))
 cv.imshow("window",img)
-cv.imshow("img", cv.flip(cv.flip(img[640 : 670 , 937 : 967],0),1))
-
+cv.imshow("img",cv.resize(img[665 : 686 , 546 : 563], (30,30)))
+print(pytesseract.image_to_string(cv.resize(img[665 : 686 , 546 : 563], (32, 32)), config = custom_config))
 
 def click_event(event, x, y, flags, params): 
     # checking for right mouse clicks      

@@ -32,9 +32,9 @@ def determine_color(image):
 
 def Get_img(img):
     #Todo:thresholding/masking/binarizing images
-    img =cv.imread("screenshots/Screenshot (20).png")#take this out when you want to use OBS feed
+    img =cv.imread("screenshots/Screenshot (19).png")#take this out when you want to use OBS feed
     img =cv.resize(img, (1920, 1080))
-    #img =cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    img =cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     return img
 
 
@@ -57,11 +57,10 @@ def To_card(string):
 def get_player_cards(img, player_cards):         
     player_cards = [img[897 : 927 , 927 : 957],img[872 : 902 , 962 : 992] ]# change so it works with multiple cards
     for i in range(len(player_cards)):
-        player_cards[i]=To_card(pytesseract.image_to_string(player_cards[i], config = custom_config))
+        player_cards[i]=To_card(pytesseract.image_to_string(cv.resize(player_cards[i], (32,32)), config = custom_config))
     return player_cards
 
-def get_dealer_cards(img, dealer_cards):
-    dealer_cards = [cv.flip(cv.flip(img[640 : 670 , 937 : 967],0),1)]#change so it works with multiple cards
-    for i in range(len(dealer_cards)):        
-        dealer_cards[i] = To_card(pytesseract.image_to_string(dealer_cards[i], config = custom_config))
-    return dealer_cards
+def get_dealer_total(img):
+    dealer_total = img[665 : 686 , 546 : 563]      
+    dealer_total = pytesseract.image_to_string(cv.resize(dealer_total, (32, 32)), config = custom_config)
+    return f"{dealer_total}"
