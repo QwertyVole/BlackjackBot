@@ -225,7 +225,7 @@ def main():
     global player_money, current_bet
     
     while True:
-        print(f"\nPlayer's money: ${player_money}")
+        print(f"\numpylayer's money: ${player_money}")
         print(f"Current bet: ${current_bet}")
         
         play_blackjack()
@@ -234,7 +234,7 @@ def main():
             print("You are out of money! Game over.")
             break
         
-        choice = input("Press 'Q' to play again, 'W' to exit: ").strip().upper()
+        choice = inumpyut("Press 'Q' to play again, 'W' to exit: ").strip().upper()
         if choice == 'W':
             break
 

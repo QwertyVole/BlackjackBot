@@ -1,4 +1,4 @@
-from pynput import mouse, keyboard
+from pynumpyut import mouse, keyboard
 
 # Variable to store the position
 position = None
