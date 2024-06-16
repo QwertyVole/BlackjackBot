@@ -46,23 +46,23 @@ def perform_ocr(image):
     return text.strip()
 
 def check_message(image, coords, expected_text):
+    
     area = extract_area(image, coords)
-    text = perform_ocr(area)
+    text = perform_ocr(area) 
     print(f"Recognized text: {text}")  # Debugging line
+
+        
     return expected_text.lower() in text.lower()
 
 def card_value(card):
     card = card.upper().strip()
-    if card in ['J', 'Q', 'K']:
-        return 10
-    elif card == 'A':
-        return 11  # Initially treat Aces as 11
+    if len(card)>=3:
+        return int(card[:-2])
     else:
-        try:
+        if card != "":
             return int(card)
-        except ValueError:
-            print(f"Invalid card value detected: {card}")
-            return None
+        else: return ""
+
 
 def filter_card_value(card_text):
     # Filter out non-numeric and unexpected characters
@@ -208,29 +208,31 @@ def main():
                             dealer_total_text = filter_card_value(dealer_total_text)
 
                             player_total_value = card_value(player_total_text)
-                            dealer_card_value = card_value(dealer_total_text)
+                            dealer_card_value= card_value(dealer_total_text)
+                            
+                            
+                            if dealer_card_value >= 17:
+                                if player_total_value is None or dealer_card_value is None:
+                                    continue
 
-                            if player_total_value is None or dealer_card_value is None:
-                                continue
+                                outcome = check_outcome(player_total_value, dealer_card_value)
+                                print(f"Re-evaluated Outcome: {outcome}")
 
-                            outcome = check_outcome(player_total_value, dealer_card_value)
-                            print(f"Re-evaluated Outcome: {outcome}")
+                                if outcome in ['Win', 'Loss', 'Push']:
+                                    print("Round over, resetting for next round.")
+                                    round_in_progress = False
+                                    break
+                                else:
+                                    # Recalculate the action based on the new totals
+                                    action = decide_action(player_total_value, dealer_card_value)
+                                    print(f"New Decision: {action}")
 
-                            if outcome in ['Win', 'Loss', 'Push']:
-                                print("Round over, resetting for next round.")
-                                round_in_progress = False
-                                break
-                            else:
-                                # Recalculate the action based on the new totals
-                                action = decide_action(player_total_value, dealer_card_value)
-                                print(f"New Decision: {action}")
-
-                                if action == 'Hit':
-                                    triple_click_position(hit_button_coords)
-                                elif action == 'Stand':
-                                    triple_click_position(stand_button_coords)
-                                elif action == 'Double':
-                                    triple_click_position(double_button_coords)
+                                    if action == 'Hit':
+                                        triple_click_position(hit_button_coords)
+                                    elif action == 'Stand':
+                                        triple_click_position(stand_button_coords)
+                                    elif action == 'Double':
+                                        triple_click_position(double_button_coords)
 main()
 if __name__ == "__main__":
     main()
