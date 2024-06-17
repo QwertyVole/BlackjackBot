@@ -4,8 +4,8 @@ import pytesseract
 from PIL import ImageGrab, Image
 import time
 
-# Set the tesseract executable path
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update with your path
+
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' 
 
 # Coordinates for player total and dealer total
 player_total_coords = (773, 891, 26, 26)
@@ -42,7 +42,7 @@ def check_trigger_color(image, coords, expected_color):
     area = np.array(image.crop((x, y, x + w, y + h)))
     area = cv2.cvtColor(area, cv2.COLOR_BGR2RGB)
     mean_color = area.mean(axis=(0, 1))
-    return np.allclose(mean_color, expected_color, atol=10)  # Tolerance can be adjusted
+    return np.allclose(mean_color, expected_color, atol=10)  
 
 def card_value(card):
     card = card.upper().strip()
@@ -58,7 +58,7 @@ def card_value(card):
             return None
 
 def filter_card_value(card_text):
-    # Filter out non-numeric and unexpected characters
+    # Filter out unexpected characters
     card_text = card_text.replace(' ', '').replace('\n', '').replace('\r', '')
     filtered_text = ''.join(filter(str.isalnum, card_text))
     return filtered_text
@@ -146,8 +146,8 @@ def main():
                 print(f"Dealer Total: {dealer_total_stable}")
                 print(f"Decision: {action}")
 
-        # To avoid overwhelming the system, add a delay
-        time.sleep(1)  # Adjust as needed
+        
+        time.sleep(1) 
 
 if __name__ == "__main__":
     main()

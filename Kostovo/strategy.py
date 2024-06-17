@@ -1,3 +1,6 @@
+
+###ZKUSEBNI VERZE
+
 import cv2 as cv
 import numpy as np
 import pytesseract
@@ -6,7 +9,7 @@ import pyautogui
 
 pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
-# Define the coordinates for the areas to capture (adjust these coordinates based on your screen)
+
 coordinates = {
     'player_firstcard': (618, 596, 646, 622),
     'player_secondcard': (645, 579, 673, 607),

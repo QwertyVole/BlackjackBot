@@ -4,8 +4,7 @@ import pyautogui
 import cv2
 import numpy as np
 
-# Set the tesseract executable path
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'  # Update with your path
+pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'  
 
 # Coordinates for player total, dealer total, and text areas
 # (x, y, w, h)
@@ -65,11 +64,11 @@ def card_value(card):
 
 
 def filter_card_value(card_text):
-    # Filter out non-numeric and unexpected characters
+    # Filter out unexpected characters
     card_text = card_text.replace(' ', '').replace('\n', '').replace('\r', '')
     filtered_text = ''.join(filter(str.isalnum, card_text))
     return filtered_text
-
+#STRAT
 def decide_action(player_total, dealer_card):
     if player_total <= 8:
         return 'Hit'
@@ -98,7 +97,7 @@ def decide_action(player_total, dealer_card):
     elif player_total >= 17:
         return 'Stand'
     return 'Invalid'
-
+#triple click to overcome problems with bugged click
 def triple_click_position(coords):
     print(f"Triple clicking at position: {coords}")
     for _ in range(3):
@@ -122,7 +121,7 @@ def check_outcome_text():
         return "win"
     else:
         return "unknown"
-
+#round outcome check
 def check_outcome(player_total, dealer_total):
     outcome_text = check_outcome_text()
     if outcome_text == "bust":
