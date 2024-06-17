@@ -68,8 +68,6 @@ def main():
                             
                             
                             if dealer_card_value >= 17:
-                                if player_total_value is None or dealer_card_value is None:
-                                    continue
 
                                 outcome = u.check_outcome(player_total_value, dealer_card_value)
                                 print(f"Re-evaluated Outcome: {outcome}")

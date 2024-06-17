@@ -55,13 +55,18 @@ def check_message(image, coords, expected_text):
 
 def card_value(card):
     card = card.upper().strip()
+    if card == "A":
+        return 4
+    if card == "a":
+        return 9
     if len(card)>=3:
         return int(card[:-2])
-    else:
-        if card != "":
-            return int(card)
-        else: return ""
+    try:
+        return int(card)
+    except ValueError:
+        return 0
 
+    
 
 def filter_card_value(card_text):
     # Filter out unexpected characters
